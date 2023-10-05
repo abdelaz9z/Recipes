@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipes_nav"
+    app:startDestination="@id/recipesFragment">
+
+    <fragment
+        android:id="@+id/recipesFragment"
+        android:name="com.etisalat.recipes.ui.recipes.RecipesFragment"
+        android:label="@string/recipes"
+        tools:layout="@layout/fragment_recipes">
+        <action
+            android:id="@+id/action_recipesFragment_to_recipesDetalsFragment"
+            app:destination="@id/recipesDetalsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipesDetalsFragment"
+        android:name="com.etisalat.recipes.ui.recipesdetals.RecipesDetailsFragment"
+        android:label="@string/recipe_details"
+        tools:layout="@layout/fragment_recipes_details">
+        <action
+            android:id="@+id/action_recipesDetalsFragment_to_recipesFragment"
+            app:destination="@id/recipesFragment" />
+        <argument
+            android:name="currentRecipes"
+            app:argType="com.etisalat.domain.model.RecipesResponseItem" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="overlay_light_10">#1AFFFFFF</color>
+    <color name="grey_5">#f2f2f2</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="platinum">#E8E8E8</color>
+    <color name="cultured">#F6F6F6</color>
+
+    <color name="platinum0">#C8C7C7</color>
+    <color name="cultured0">#E1E1E1</color>
+</resources>
