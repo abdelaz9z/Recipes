@@ -4,10 +4,29 @@ import com.etisalat.domain.model.RecipesResponse
 import com.etisalat.domain.model.RecipesResponseItem
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Interface defining the contract for retrieving recipes.
+ */
 interface RecipesRepository {
+
+    /**
+     * Retrieves recipes from a remote data source.
+     *
+     * @return [RecipesResponse] object containing the list of recipes.
+     */
     suspend fun getRecipesFromRemote(): RecipesResponse
 
+    /**
+     * Retrieves recipes from a local data source.
+     *
+     * @return [Flow] emitting a list of [RecipesResponseItem] objects.
+     */
     fun getRecipesFromLocal(): Flow<List<RecipesResponseItem>>
 
+    /**
+     * Inserts a new [RecipesResponseItem] into the local data source.
+     *
+     * @param recipesResponseItem The [RecipesResponseItem] to be inserted.
+     */
     fun insertRecipesItem(recipesResponseItem: RecipesResponseItem)
 }
