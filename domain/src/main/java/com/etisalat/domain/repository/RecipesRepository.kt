@@ -24,9 +24,9 @@ interface RecipesRepository {
     fun getRecipesFromLocal(): Flow<List<RecipesResponseItem>>
 
     /**
-     * Inserts a new [RecipesResponseItem] into the local data source.
+     * Inserts a new [RecipesResponse] into the local data source.
      *
-     * @param recipesResponseItem The [RecipesResponseItem] to be inserted.
+     * @param recipesResponse The [RecipesResponse] to be inserted.
      */
-    fun insertRecipesItem(recipesResponseItem: RecipesResponseItem)
+    fun insertRecipesItem(recipesResponse: RecipesResponse)
 }

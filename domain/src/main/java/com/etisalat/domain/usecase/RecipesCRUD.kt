@@ -1,5 +1,6 @@
 package com.etisalat.domain.usecase
 
+import com.etisalat.domain.model.RecipesResponse
 import com.etisalat.domain.model.RecipesResponseItem
 import com.etisalat.domain.repository.RecipesRepository
 
@@ -18,12 +19,12 @@ class RecipesCRUD(private val recipesRepository: RecipesRepository) {
     fun getRecipesFromRemote() = recipesRepository.getRecipesFromLocal()
 
     /**
-     * Inserts a new [RecipesResponseItem] into the local data source.
+     * Inserts a new [RecipesResponse] into the local data source.
      *
-     * @param recipesResponseItem The [RecipesResponseItem] to be inserted.
+     * @param recipesResponse The [RecipesResponse] to be inserted.
      */
-    fun insertRecipesItem(recipesResponseItem: RecipesResponseItem) {
-        recipesRepository.insertRecipesItem(recipesResponseItem)
+    fun insertRecipesItem(recipesResponse: RecipesResponse) {
+        recipesRepository.insertRecipesItem(recipesResponse)
     }
 
 }

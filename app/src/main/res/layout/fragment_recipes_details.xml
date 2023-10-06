@@ -11,14 +11,14 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="194dp"
-        android:contentDescription="content_description_media"
+        android:contentDescription="@string/thumb"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
-    <!-- Name, headline and description text -->
+    <!-- Name -->
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="0dp"
@@ -32,6 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:text="name" />
 
+    <!-- headline -->
     <TextView
         android:id="@+id/headlineTextView"
         android:layout_width="0dp"
@@ -45,19 +46,21 @@
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         tools:text="headline" />
 
+    <!-- description -->
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="supporting_text"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?android:attr/textColorSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/headlineTextView"
-        app:layout_constraintTop_toBottomOf="@+id/headlineTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/headlineTextView"
+        tools:text="description" />
 
+    <!-- calories -->
     <TextView
         android:id="@+id/caloriesTextView"
         android:layout_width="0dp"
@@ -68,11 +71,12 @@
         android:paddingTop="10sp"
         android:paddingRight="16dp"
         android:paddingBottom="10sp"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         tools:text="Calories: 516 kcal" />
 
+    <!-- carbos -->
     <TextView
         android:id="@+id/carbosTextView"
         android:layout_width="0dp"
@@ -82,12 +86,13 @@
         android:paddingTop="10sp"
         android:paddingRight="16dp"
         android:paddingBottom="10sp"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/caloriesTextView"
         app:layout_constraintStart_toEndOf="@+id/caloriesTextView"
         app:layout_constraintTop_toTopOf="@+id/caloriesTextView"
         tools:text="Carbos: 47 g" />
 
+    <!-- fats -->
     <TextView
         android:id="@+id/fatsTextView"
         android:layout_width="0dp"
@@ -97,28 +102,30 @@
         android:paddingTop="10sp"
         android:paddingRight="16dp"
         android:paddingBottom="10sp"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/carbosTextView"
         app:layout_constraintStart_toEndOf="@+id/carbosTextView"
         app:layout_constraintTop_toTopOf="@+id/carbosTextView"
         app:layout_constraintVertical_bias="1.0"
         tools:text="Fats: 8 g" />
 
+    <!-- proteins -->
     <TextView
         android:id="@+id/proteinsTextView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/background_title_right"
         android:paddingLeft="16dp"
         android:paddingTop="10sp"
         android:paddingRight="16dp"
         android:paddingBottom="10sp"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/fatsTextView"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fatsTextView"
-        app:layout_constraintTop_toTopOf="@+id/fatsTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/caloriesTextView"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesTextView"
         tools:text="Proteins: 43 g" />
 
     <View
@@ -127,6 +134,8 @@
         android:layout_height="1dp"
         android:layout_marginTop="24dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

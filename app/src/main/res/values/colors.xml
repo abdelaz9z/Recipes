@@ -10,4 +10,13 @@
 
     <color name="platinum0">#C8C7C7</color>
     <color name="cultured0">#E1E1E1</color>
+
+    <!-- Very easy -->
+    <color name="limeGreen">#00FF00</color>
+    <!-- Easy -->
+    <color name="yellow">#FFFF00</color>
+    <!-- Moderate -->
+    <color name="orange">#FFA500</color>
+    <!-- Difficult -->
+    <color name="red">#FF0000</color>
 </resources>

@@ -36,26 +36,32 @@ class RecipesFragment : Fragment() {
         binding.recipesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recipesRecyclerView.setHasFixedSize(true)
 
-        lifecycleScope.launch {
-            viewModel.isNetworkAvailable.collect { isNetworkAvailable ->
-                // Perform actions based on network availability
-                if (isNetworkAvailable) {
-                    // Network is available, perform data operations
+        viewModel.isNetworkAvailable.observe(requireActivity()) { isNetworkAvailable ->
+            // Perform actions based on network availability
+            when (isNetworkAvailable) {
+                // Network is available, perform data operations
+                true -> {
+                    Log.i(TAG, "Network is available")
+
                     binding.networkStateTextView.visibility = View.GONE
 
                     // get recipes
                     viewModel.getRecipes()
-                    viewModel.recipes.collect { recipes ->
-                        if (recipes != null) {
-                            getData(recipes)
+                    lifecycleScope.launch {
+                        viewModel.recipes.collect { recipes ->
+                            if (recipes != null) {
+                                setAdapter(recipes)
 
-                            viewModel.insertRecipesItem(recipes)
+                                viewModel.insertRecipesItem(recipes)
+                            }
                         }
                     }
+                }
 
-                    Log.i(TAG, "Network is available")
-                } else {
-                    // Network is not available, show a message or handle the scenario
+                // Network is not available, show a message or handle the scenario
+                false -> {
+                    Log.e(TAG, "Network is not available")
+
                     binding.networkStateTextView.visibility = View.VISIBLE
 
                     viewModel.getRecipesFromLocal.observe(viewLifecycleOwner) { recipes ->
@@ -63,9 +69,7 @@ class RecipesFragment : Fragment() {
                         val recipesResponse = RecipesResponse()
                         recipesResponse.addAll(recipes)
 
-                        getData(recipesResponse)
-
-                        Log.e(TAG, "Network is not available")
+                        setAdapter(recipesResponse)
                     }
                 }
             }
@@ -87,7 +91,10 @@ class RecipesFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    private fun getData(recipesResponse: RecipesResponse) {
+    /**
+     * set data in adapter
+     */
+    private fun setAdapter(recipesResponse: RecipesResponse) {
         val listAdapter = RecipesListAdapter(recipesResponse) { recipe ->
             // Here we'll receive a callback of
             // every RecyclerView item click
@@ -97,9 +104,6 @@ class RecipesFragment : Fragment() {
         }
         binding.recipesRecyclerView.adapter =
             listAdapter // Move the adapter assignment here
-
-
-        Log.i(TAG, "itemCount: ${listAdapter.itemCount}")
     }
 
     companion object {

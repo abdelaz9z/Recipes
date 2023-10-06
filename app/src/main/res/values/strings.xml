@@ -9,4 +9,9 @@
     <string name="recipes">Recipes</string>
     <string name="recipe_details">Recipe details</string>
     <string name="no_connection">No connection</string>
+    <string name="thumb">thumb</string>
+    <string name="very_easy">Very easy</string>
+    <string name="easy">Easy</string>
+    <string name="moderate">Moderate</string>
+    <string name="difficult">Difficult</string>
 </resources>

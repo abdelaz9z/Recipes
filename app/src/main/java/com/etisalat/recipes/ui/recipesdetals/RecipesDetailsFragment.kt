@@ -12,7 +12,6 @@ import com.etisalat.domain.model.RecipesResponseItem
 import com.etisalat.recipes.R
 import com.etisalat.recipes.databinding.FragmentRecipesDetailsBinding
 import com.squareup.picasso.Picasso
-import java.time.Duration
 
 class RecipesDetailsFragment : Fragment() {
 
@@ -30,7 +29,7 @@ class RecipesDetailsFragment : Fragment() {
 
         dataCheck(args.currentRecipes)
 
-        //
+        // set data in UI
         Picasso.get().load(args.currentRecipes.thumb).into(binding.imageView)
         binding.nameTextView.text = args.currentRecipes.name
         binding.headlineTextView.text = args.currentRecipes.headline
@@ -39,23 +38,30 @@ class RecipesDetailsFragment : Fragment() {
         binding.carbosTextView.text = getString(R.string.carbos, args.currentRecipes.carbos)
         binding.fatsTextView.text = getString(R.string.fats, args.currentRecipes.fats)
         binding.proteinsTextView.text = getString(R.string.proteins, args.currentRecipes.proteins)
-//        binding.timeTextView.text = convertDuration(args.currentRecipes.time)
 
         return binding.root
     }
 
+    /**
+     * Check the data if there is data display it in the UI
+     */
     private fun dataCheck(recipesResponseItem: RecipesResponseItem) {
-        if (recipesResponseItem.calories.isNullOrEmpty()) {
+
+        if (recipesResponseItem.calories.isEmpty()) {
             binding.caloriesTextView.visibility = View.GONE
         }
-        if (recipesResponseItem.carbos.isNullOrEmpty()) {
+
+        if (recipesResponseItem.carbos.isEmpty()) {
             binding.carbosTextView.visibility = View.GONE
         }
-        if (recipesResponseItem.fats.isNullOrEmpty()) {
+
+        if (recipesResponseItem.fats.isEmpty()) {
             binding.fatsTextView.visibility = View.GONE
         }
-        if (recipesResponseItem.proteins.isNullOrEmpty()) {
+
+        if (recipesResponseItem.proteins.isEmpty()) {
             binding.proteinsTextView.visibility = View.GONE
         }
+
     }
 }
