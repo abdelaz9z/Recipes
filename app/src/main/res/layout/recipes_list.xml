@@ -43,10 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
             android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="?android:attr/textColorSecondary"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/nameTextView"
             app:layout_constraintTop_toBottomOf="@+id/nameTextView"
             tools:text="with Sweet Potato Wedges and Minted Snap Peas" />
@@ -87,6 +85,100 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/nameTextView"
             tools:text="35M" />
+
+        <!-- description -->
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/headlineTextView"
+            app:layout_constraintTop_toBottomOf="@+id/headlineTextView"
+            tools:text="description" />
+
+        <!-- calories -->
+        <TextView
+            android:id="@+id/caloriesTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_title_right"
+            android:paddingLeft="16dp"
+            android:paddingTop="10sp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10sp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/descriptionTextView"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            tools:text="Calories: 516 kcal" />
+
+        <!-- carbos -->
+        <TextView
+            android:id="@+id/carbosTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title_right"
+            android:paddingLeft="16dp"
+            android:paddingTop="10sp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/caloriesTextView"
+            app:layout_constraintStart_toEndOf="@+id/caloriesTextView"
+            app:layout_constraintTop_toTopOf="@+id/caloriesTextView"
+            tools:text="Carbos: 47 g" />
+
+        <!-- fats -->
+        <TextView
+            android:id="@+id/fatsTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_title_right"
+            android:paddingLeft="16dp"
+            android:paddingTop="10sp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/carbosTextView"
+            app:layout_constraintStart_toEndOf="@+id/carbosTextView"
+            app:layout_constraintTop_toTopOf="@+id/carbosTextView"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Fats: 8 g" />
+
+        <!-- proteins -->
+        <TextView
+            android:id="@+id/proteinsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background_title_right"
+            android:paddingLeft="16dp"
+            android:paddingTop="10sp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/caloriesTextView"
+            app:layout_constraintTop_toBottomOf="@+id/caloriesTextView"
+            tools:text="Proteins: 43 g" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
